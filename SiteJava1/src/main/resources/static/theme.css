@@ -1,0 +1,20 @@
+h1 {
+	color: green;
+}
+
+.colonnegauche {
+	float: left;
+	width: 300px;
+	background: burlywood;
+}
+
+.tete {
+	float: top;
+	width: 300px;
+	background: blue;
+}
+
+td{
+	border:1px solid black;
+	border-collapse:collapse;
+}

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Ajout produit </title>
+    </head>
+	<body>
+	
+		<div>
+ 	<h1>Ajout de produit</h1>
+ 	
+	     <form th:action="@{/ajoutsave}"  method="post">
+	     <select name="cat">
+	     	<option th:each="cat:${listCategorie}" th:text="${cat.nomCat}" th:value="${cat.idcat}">
+	     </select>
+	     	<input type="text" name="nom" th:value="Produit">
+	     	<input type="text" name="prix" value="12">
+	    <input type="submit" value="Ajouter">
+	     </form>
+	     </div>
+	</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title th:text="${Categorie.nomCat}"></title>
+    </head>
+	<body>
+	
+		<div>
+ 	<h1>Détails de la catégorie : <label th:text="${Categorie.nomCat}" ></label></h1>
+ 	
+	     <a th:href="@{'/editcategorie/' + ${Categorie.idcat}}">
+		<input type="submit" value="Changer le nom de la catégorie "/></a>
+		<p></p>
+<table>
+<thead>
+<tr>
+	<td>ID</td>
+	<td>NOM</td>
+	<td>PRIX</td>
+	<td colspan=2>Action</td>
+</tr>
+</thead>
+<tbody>
+
+<tr th:each="pc: ${ProdCat}">
+	<td th:text="${pc.id}"></td>
+	<td th:text="${pc.nom}"></td>
+	<td th:text="${pc.prix}"></td>
+		<td><a th:href="@{'/editproduit/' + ${pc.id}}">
+		<input type="submit" value="Editer"/></a></td>
+</tr>
+</table>
+	     	<p></p>
+	    <a th:href="@{/index}"><input type="submit" value="Retour"></a>
+	     
+	     </div>
+	</body>
+</html>

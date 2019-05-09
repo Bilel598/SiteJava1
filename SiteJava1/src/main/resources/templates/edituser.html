@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Editer utilisateur</title>
+</head>
+<body>
+
+	<div>
+		<h1>Edition d'utilisateur</h1>
+		<form th:action="@{/addrole}" method="post">
+
+			<table>
+				<thead>
+					<tr>
+						<td>Login</td>
+						<td>Role</td>
+					</tr>
+
+				</thead>
+				<tbody>
+
+
+
+					<tr th:each="u: ${User}">
+						<td th:text="${u.login}"></td>
+						<td th:text="${u.role}"></td>
+						<td th:text="${test}"></td>
+					</tr>
+				</tbody>
+			</table>
+			<select name="roleP">
+				<option th:each="r:${listRole}" th:text="${r.role}" th:value="${r.role}">
+			</select> 
+					<input type="text" hidden="hidden" th:value="${User.id_user}" name="id_user">
+			
+		<input type="submit" value="Ajouter rôle">
+		<p th:text="${User}"></p>
+		</form>
+
+				 
+	</div>
+</body>
+</html>

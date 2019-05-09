@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<title>Test BDD</title>
+<link rel="stylesheet" type="text/css" href="theme.css">
+</head>
+<body>
+	<header>
+
+		<div class="colonnegauche">
+			<ul>
+				<li><a th:href="@{'/ajoutcat'}"><input type="submit"
+						value="Ajouter une catégorie" /></a> <li>
+			<a th:href="@{'/ajout'}"><input
+						type="submit" value="Ajouter un produit" /></a></ul>
+		</div>
+		<div class="tete">
+			<a th:href="@{/logout}">Logout</a>
+			<p th:text="${session.user.principal.username}"></p>
+		</div>
+
+	</header>
+	<h1>Interaction BDD</h1>
+	<h2>Liste de produit</h2>
+	<table>
+		<thead>
+			<tr>
+				<td>ID</td>
+				<td>NOM</td>
+				<td>PRIX</td>
+				<td>CAT</td>
+				<td colspan=2>Action</td>
+			</tr>
+
+		</thead>
+		<tbody>
+			<tr th:each="p: ${listProduit}">
+				<td th:text="${p.id}"></td>
+				<td th:text="${p.nom}"></td>
+				<td th:text="${p.prix}"></td>
+				<td th:text="${p.Categorie.nomCat}">
+				<td><a th:href="@{'/editproduit/' + ${p.id}}"><input
+						type="submit" value="Editer" /></a> <a
+					onclick="return confirm('Etes vous sur?')"
+					th:href="@{'/delete/'+ ${p.id}}"><input type="submit"
+						value="Supprimer" /></a></td>
+
+
+			</tr>
+			<tr>
+			<tr th:each="c: ${listCategorie}">
+				<td th:text="${c.idcat}"></td>
+				<td th:text="${c.nomCat}"></td>
+				<td colspan=2></td>
+
+				<td><a th:href="@{'/catprod/' + ${c.idcat}}"><input
+						type="submit" value="Details" /></a> <a
+					onclick="return confirm('Etes vous sur?')"
+					th:href="@{'/deletecat/'+ ${c.idcat}}"><input type="submit"
+						value="Supprimer" /></a></td>
+
+			</tr>
+
+		</tbody>
+	</table>
+</body>
+</html>

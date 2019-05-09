@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Détails utilisateurs</title>
+</head>
+<body>
+
+	<div>
+		<h1>Détails des utilisateurs</h1>
+		<table>
+			<thead>
+				<tr>
+					<td>ID</td>
+					<td>Login</td>
+					<td>Role</td>
+				</tr>
+
+			</thead>
+			<tbody>
+				<tr th:each="u: ${listUser}">
+					<td th:text="${u.id_user}"></td>
+					<td th:text="${u.login}"></td>
+					<td th:text="${u.role}"></td>
+					<td><a th:href="@{'/edituser/' + ${u.login}}"><input
+							type="submit" value="Editer Rôle" /></a></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>

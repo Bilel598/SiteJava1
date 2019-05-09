@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Reinitialisation MdP</title>
+</head>
+<body>
+
+	<div>
+		<h1>Reset Password</h1>
+		<form th:action="@{/savepass}" method="post">
+			<!-- 			<select name="passU"> -->
+			<!-- 				<option th:each="u: ${listUser}" th:text="${u.login}" -->
+			<!-- 					th:name="${id_user}"> -->
+			<!-- 			</select>  -->
+			<input type="text"
+				name="passU">
+			<input type=password th:name="mdp"> <input type="submit"
+				value="Save mdp"> <input type="text"
+				th:each="u: ${listUser}" hidden="hidden" th:value="${u.id_user}"
+				name="id_user">
+		</form>
+	</div>
+</body>
+</html>
